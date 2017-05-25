@@ -8,7 +8,7 @@ public class UserDao{
 	static Connection currentCon = null;
 	static ResultSet rs = null;  
 	
-	public static UserBean login(UserBean bean) {
+	public static User login(User bean) {
 
 		//preparing some objects for connection 
 		Statement stmt = null;    
@@ -90,7 +90,7 @@ public class UserDao{
 return bean;
 	
       }	
-	public static int save(UserBean u){
+	public static int save(User u){
 		int status=0;
 		try{
 			Connection con= ConnectionManager.getConnection();
@@ -104,7 +104,7 @@ return bean;
 		}catch(Exception e){System.out.println(e);}
 		return status;
 	}
-	public static int update(UserBean u){
+	public static int update(User u){
 		int status=0;
 		try{
 			Connection con=ConnectionManager.getConnection();
@@ -119,7 +119,7 @@ return bean;
 		}catch(Exception e){System.out.println(e);}
 		return status;
 	}
-	public static int delete(UserBean u){
+	public static int delete(User u){
 		int status=0;
 		try{
 			Connection con=ConnectionManager.getConnection();
@@ -130,15 +130,15 @@ return bean;
 
 		return status;
 	}
-	public static List<UserBean> getAllRecords(){
-		List<UserBean> list=new ArrayList<UserBean>();
+	public static List<User> getAllRecords(){
+		List<User> list=new ArrayList<User>();
 		
 		try{
 			Connection con=ConnectionManager.getConnection();
 			PreparedStatement ps=con.prepareStatement("select * from users");
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()){
-				UserBean u=new UserBean();
+				User u=new User();
 				u.setId(rs.getInt("id"));
 				u.setFirstName(rs.getString("FirstName"));
 				u.setLastName(rs.getString("LastName"));
@@ -148,15 +148,15 @@ return bean;
 		}catch(Exception e){System.out.println(e);}
 		return list;
 	}
-	public static UserBean getRecordById(int id){
-		UserBean u=null;
+	public static User getRecordById(int id){
+		User u=null;
 		try{
 			Connection con=ConnectionManager.getConnection();
 			PreparedStatement ps=con.prepareStatement("select * from users where id=?");
 			ps.setInt(1,id);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()){
-				u=new UserBean();
+				u=new User();
 				u.setId(rs.getInt("id"));
 				u.setFirstName(rs.getString("FirstName"));
 				u.setLastName(rs.getString("LastName"));

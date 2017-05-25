@@ -18,7 +18,7 @@ public class UserUtils extends HttpServlet {
 	
 		try{	    
 	
-			UserBean user = new UserBean();
+			User user = new User();
 			String action = request.getParameter("action");
 			user.setFirstName(request.getParameter("firstName"));
 			user.setLastName(request.getParameter("lastName"));

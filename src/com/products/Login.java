@@ -20,7 +20,7 @@ public void doGet(HttpServletRequest request, HttpServletResponse response)
 try
 {	    
 
-     UserBean user = new UserBean();
+     User user = new User();
      user.setUserName(request.getParameter("un"));
      user.setPassword(request.getParameter("pw"));
 
