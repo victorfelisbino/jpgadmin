@@ -1,6 +1,6 @@
 package com.products;
 
- public class UserBean {
+ public class User {
 	
       private String username;
       private String password;
