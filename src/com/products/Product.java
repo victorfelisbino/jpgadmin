@@ -289,5 +289,5 @@ package com.products;
 	public void setMODIFIED_FIELDS(String mODIFIED_FIELDS) {
 		MODIFIED_FIELDS = mODIFIED_FIELDS;
 	}
-	
+	 
 }
