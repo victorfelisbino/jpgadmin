@@ -22,6 +22,21 @@ public class ProductUtils{
 		}
 		return vendorList;
 	}
+	public static List<Product> getProducts(){
+		List<Product> vendorList = new ArrayList<Product>();
+		try{
+			Connection con=ConnectionManager.getConnection();
+			PreparedStatement ps = con.prepareStatement("select * from products");
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()){
+				Product p = new Product();
+				p.setAMAZON_COST_TO_SELL(aMAZON_COST_TO_SELL);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return vendorList;
+	}
 	int 	iTotalRecords;
 	
 	int 	iTotalDisplayRecords;
